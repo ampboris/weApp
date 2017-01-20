@@ -1,0 +1,7 @@
+/* pages/activity/activity.wxss */
+page{
+    height:100%;
+}
+scroll-view{
+    height:100%;
+}

@@ -1,0 +1,53 @@
+<!--pages/detail/detail.wxml-->
+<import src='../../utils/wxParse/wxParse.wxml'/>
+<block wx:if="{{true}}">
+   <image src="http://img.camelliae.com/camelliae/pic/1010/5/ae59f4162e7d82f7c158be3d7d73323e.jpg"></image>
+   <view class='a header'>
+       <view class='title'>卡没来呢</view>
+       <view class='op-box'>
+           <view class='user-op'>
+              收藏 <text>222</text>
+           </view>
+           <view>  </view>
+           <view class='user-op'>
+              浏览 <text>333</text>
+           </view>
+       </view>
+   </view>
+   <view class='rel-info'>
+       <view class='info ink'>
+            <view class='wrap-center'>
+                 <text class='mark ink'></text>
+                 <text class='color'>墨色</text>
+            </view>
+       </view>
+       <view class='info'>
+            <view class='wrap-center'>
+                 <text class='mark'></text>
+                 <text class='time'>2017-05-01 00:00-2017-05-31 00:00</text>
+            </view>            
+       </view>
+       <view class='info fix'>
+            <view class='wrap-center w-c-add'>
+                <text class='mark'></text>
+                <text class='l'>地址:</text>
+            </view>
+       </view>
+       <view class='info'>
+           <view class='wrap-center'>
+                <text class='mark'></text>
+                <text>电话:</text>
+                <text class='tel'>032-324343243</text>
+           </view> 
+       </view>
+   </view>
+</block>
+<view class='divider'></view>
+<view class='main-body'>
+    <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+</view>
+<view class='more'>
+    <view>更多热门</view>
+
+</view>
+

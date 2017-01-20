@@ -1,0 +1,14 @@
+<template name='service'>
+    <view class='service-item'>
+       <scroll-view class='img-box' scroll-x="true">
+          <block wx:for="{{images}}">
+              <image src="{{item.src}}" style="width:{{item.width}}rpx"></image>
+          </block>
+       </scroll-view>
+       <view class='title'>{{title}}</view>
+       <view class='box'>
+          <view class='price'><text class='yen'>¥</text>{{price}}</view>
+          <view class='address'>{{address}}</view>
+       </view>
+    </view>
+</template>

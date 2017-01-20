@@ -1,0 +1,28 @@
+<!--pages/member/member.wxml-->
+<import src='../components/loadNotice.wxml'/>
+<scroll-view bindscrolltolower='loadMore' scroll-y="true" >
+    <block wx:for='{{lists}}'>
+        <view class='box member-item'>
+           <view class='box-top'>
+              <image src="{{item.avatar}}" mode="aspectFill"></image>
+            <view class='box-top-right'>
+                <view class='name'>{{item.name}}
+                        <!--<text>v2</text>-->
+                </view>
+                <view class='title'>{{item.title}}</view>
+            </view>        
+           </view>
+           <view class='box-bottom'>
+              <view class='box-b'>
+                 <view class='number'>{{item.followNum}}</view>
+                 <view class='text'>TA的关注</view>      
+              </view>
+              <view class='box-b'>
+                 <view class='number'>{{item.fanNum}}</view>
+                 <view class='text'>TA的粉丝</view> 
+              </view>              
+           </view>
+        </view>
+    </block>
+    <template is='load-notice' data="{{message:loadNotice}}"></template>
+</scroll-view>

@@ -1,0 +1,9 @@
+<!--pages/activity/activity.wxml-->
+<import src='../components/activity.wxml'/>
+<import src='../components/loadNotice.wxml'/>
+<scroll-view bindscrolltolower='loadMore' scroll-y="true" >
+    <block wx:for='{{lists}}'>
+        <template is='activity' data="{{...item}}"></template>
+    </block>
+    <template is='load-notice' data="{{message:loadNotice}}"></template>
+</scroll-view>

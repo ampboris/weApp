@@ -1,0 +1,9 @@
+<!--pages/service/service.wxml-->
+<import src='../components/service.wxml'/>
+<import src='../components/loadNotice.wxml'/>
+<scroll-view bindscrolltolower='loadMore' scroll-y="true" >
+    <block wx:for='{{lists}}'>
+        <template is='service' data="{{...item}}"></template>
+    </block>
+    <template is='load-notice' data="{{message:loadNotice}}"></template>
+</scroll-view>

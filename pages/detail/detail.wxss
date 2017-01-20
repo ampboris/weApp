@@ -1,0 +1,80 @@
+/* pages/detail/detail.wxss */
+@import '../../utils/wxParse/wxParse.wxss';
+page{
+    background-color: white;
+}
+.wxParse-p{
+    position: relative;
+}
+.wxParse-p>image{
+    margin-left: 20rpx;
+    width: 710rpx !important;
+}
+.header{
+    padding: 28rpx 20rpx 40rpx;
+}
+.a{
+    padding-bottom: 0;
+}
+.title{
+    font-size: 36rpx;
+    color: #111;
+    font-weight: 500;
+    line-height: 1.5;
+}
+.op-box{
+    margin-top: 10rpx;
+    display: flex;
+}
+.op-box text{
+    display: inline-block;
+}
+.user-op{
+    font-size: 24rpx;
+    color: #999;
+}
+.rel-info{
+    padding: 0 20rpx;
+    margin-top: 40rpx;
+    padding-bottom: 60rpx;
+}
+.rel-info .info:first-child{
+    margin-top: 0;
+}
+.rel-info .info.type-ser{
+    margin-top: 0;
+}
+.rel-info .info{
+    font-size: 26rpx;
+    color: #333;
+    margin-top: 20rpx;
+}
+.rel-info .info .wrap-center{
+    position: relative;
+    padding-left: 34rpx;
+}
+.rel-info .wrap-center .mark{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    display: inline-block;
+    width: 14rpx;
+    height: 14rpx;
+    margin-right: 20rpx;
+    vertical-align: top;
+    background: #ccc;
+    border-radius: 7rpx;
+}
+.rel-info .wrap-center .ink{
+    background-color: #3f3f3f;
+}
+.divider{
+    margin-left: 20rpx;
+    width: 710rpx;
+    height:1rpx;
+    background-color: #ccc;
+}
+.main-body{
+    padding-top: 60rpx;
+}

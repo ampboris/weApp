@@ -1,0 +1,11 @@
+<template name='activity'>
+    <view class='activity-item'>
+       <view class='img-box'>
+          <image src="{{src}}" class='head-pic' mode='aspectFill' style="width:710rpx;height:400rpx"></image>
+          <view class='address'>{{address}}</view>
+       </view>
+       <view class='title'>{{title}}</view>
+       <text class='tag'>{{type}}活动</text>
+       <text class='tag'>{{time}}开始</text>       
+    </view>
+</template>

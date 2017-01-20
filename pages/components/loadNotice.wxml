@@ -1,0 +1,5 @@
+<template name='load-notice'>
+   <view class='load-notice'>
+        <view>{{message}}</view>
+   </view>
+</template>

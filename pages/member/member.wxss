@@ -1,0 +1,60 @@
+/* pages/member/member.wxss */
+page{
+    height: 100%;
+}
+scroll-view{
+    height:100%;
+}
+.member-item{
+    padding: 40rpx 30rpx;
+    margin-bottom: 20rpx;
+    background-color: white;
+}
+.member-item .box-top{
+   display: flex;
+   padding-bottom: 20rpx;
+   height: 100rpx;
+   border-bottom: 1rpx solid #eee;
+}
+.member-item .box-top image{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 5rpx;
+}
+.member-item .box-top-right{
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20rpx;
+    margin-right: auto;
+}
+.name{
+    font-size: 32rpx;
+    font-weight: 500;
+    color: #111;
+}
+.title{
+    margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+.box-bottom{
+    position: relative;
+    display: flex;
+    padding: 30rpx 0 0;
+    align-items: center;    
+}
+.box-b{
+    margin-right: 140rpx;
+    text-align: center;
+}
+.number{
+    font-size: 28rpx;
+    color: #333;
+}
+.text{
+    margin-top: 10rpx;
+    font-size: 28rpx;
+    color: #999;
+}
