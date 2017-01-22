@@ -115,13 +115,13 @@
 <!--分割线-->
 <view class='divider'></view>
 <!--正文-->
-<!--<view class='main-body'>
+<view class='main-body'>
     <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
-</view>-->
+</view>
 <view class='more'>
     <view class='more-title'>更多热门</view>
     <block wx:for="{{recLists}}">
-        <view class='rec-list'>
+        <view class='rec-list' data-type='{{item.linkType}}' data-id="{{item.linkId}}" catchtap="turnTo">
         <image src="{{item.coverPic}}" style="width:280rpx;height:200rpx" mode="aspectFill"></image>
             <view class='right'>
                 <view class='title'>

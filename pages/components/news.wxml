@@ -1,0 +1,9 @@
+<template name='news'>
+    <view class='news-item' catchtap="turnTo" data-type='news' data-id="{{id}}">
+        <view class='left'>
+            <view class='title'>{{title}}</view>
+            <view class='brief'>{{brief}}</view>
+        </view>
+        <image src="{{src}}" mode="aspectFill"></image>
+    </view>
+</template>

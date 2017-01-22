@@ -1,13 +1,23 @@
 <!--index.wxml-->
-<view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">&yen;</text>
-  </view>
-</view>
-<template name="item">
-  <text>111</text>
-</template>
+<import src='../components/project.wxml'/>
+<import src='../components/news.wxml'/>
+<import src='../components/activity.wxml'/>
+<import src='../components/loadNotice.wxml'/>
+<scroll-view bindscrolltolower='loadMore' scroll-y="true" >
+    <!--轮播-->
+    <swiper indicator-dots="true"
+      autoplay="{{autoplay}}" interval="3000" circular="true">
+      <block wx:for="{{bannerImgUrls}}">
+        <swiper-item>
+          <image src="{{item.src}}" class="slide-image" style="width:750rpx;height:420rpx" mode="aspectFill"/>
+        </swiper-item>
+      </block>
+    </swiper>
+    <!--列表-->
+    <block wx:for='{{lists}}'>
+        <template is='news' data="{{...item}}" wx:if="{{item.rootType==1}}"></template>
+        <template is='activity' data="{{...item}}" wx:if="{{item.rootType==2}}"></template>
+        <template is='project' data="{{...item}}" wx:if="{{item.rootType==3}}"></template>
+    </block>
+    <template is='load-notice' data="{{message:loadNotice}}"></template>
+</scroll-view>

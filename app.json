@@ -1,10 +1,11 @@
 {
   "pages":[
-    "pages/detail/detail",
-    "pages/member/member",
+    "pages/index/index",
+    "pages/news/news",
     "pages/project/project",
     "pages/activity/activity",
-    "pages/index/index",
+    "pages/detail/detail",
+    "pages/member/member",
     "pages/logs/logs"
   ],
     "tabBar": {

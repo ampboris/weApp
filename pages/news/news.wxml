@@ -1,9 +1,9 @@
-<!--pages/project/project.wxml-->
-<import src='../components/project.wxml'/>
+<!--pages/news/news.wxml-->
+<import src='../components/news.wxml'/>
 <import src='../components/loadNotice.wxml'/>
 <scroll-view bindscrolltolower='loadMore' scroll-y="true" >
     <block wx:for='{{lists}}'>
-        <template is='project' data="{{...item}}"></template>
+        <template is='news' data="{{...item}}"></template>
     </block>
     <template is='load-notice' data="{{message:loadNotice}}"></template>
 </scroll-view>

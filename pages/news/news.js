@@ -1,12 +1,12 @@
-// pages/project/project.js
-let Api=require('../../utils/api.js').projectList
+// pages/news/news.js
+let Api=require('../../utils/api.js').newsList
 Page({
   data:{
     lists:[],
     loadNotice:'正在加载中...',
     page:1,
     pageSize:5,
-    pageCount:2
+    pageCount:2    
   },
   onLoad:function(options){
     this.fetchData();
@@ -24,7 +24,7 @@ Page({
        this.fetchData();
      }
   },
-  fetchData:function(){
+  fetchData(){
     var that=this;
     wx.request({
       url: Api,
@@ -33,41 +33,34 @@ Page({
          page:this.data.page
       },
       success: function(res){
-        console.log(res)
         let count=res.data.retData.dataCount
         that.data.pageCount=Math.ceil(count/that.data.pageSize)
         let list=res.data.retData.dataList;
+        var lists=[];
         list.forEach(x=>{
-          const item={};
-          const images=[];
-          const imgArr=x.coverPicArr;
-          imgArr.forEach(i=>{
-            const image={}
-            image.src=i.coverPic
-            image.width=i.ratio*180
-            images.push(image)
-          })
-          console.log(images)
-          item.images=images;
-          item.address=x.provinceName.substring(0,2);
-          item.id=x.id;
-          item.title=x.title;
-          item.price=x.totalAmount;
-          // 为了能实现数组连接，将对象放入这个新数组首项，另外这个每次循环都创建了item空对象和box空数组，会不会有性能浪费的问题；另外需要验证直接设置data里的数是可以的，但数组不行，而且数组的push方法也不可用。
-          const box=[];
-          box[0]=item;
-          // that.data.lists=that.data.lists.concat(box)
-          that.setData({
-            lists:that.data.lists.concat(box)
-          })
+          let item={}
+          item.id=x.id
+          item.title=x.title
+          item.src=x.objCoverPic
+          item.brief=x.briefIntro
+          lists.push(item)
         })
+        that.setData({
+          lists:that.data.lists.concat(lists)
+        })
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
       }
     })
   },
   turnTo:function(e){
      var id=e.currentTarget.dataset.id;
      wx.navigateTo({
-     url: "../detail/detail?type=project&id="+id+""})
+     url: "../detail/detail?type=news&id="+id+""})
   },
   onReady:function(){
     // 页面渲染完成

@@ -41,6 +41,7 @@ Page({
         let list=res.data.retData.dataList;
         list.forEach(x=>{
           const item={}
+          item.id=x.id;
           item.src=x.objCoverPic;
           item.address=x.provinceName.substring(0,2);
           item.title=x.title;
@@ -56,6 +57,11 @@ Page({
         })
       }
     })
+  },
+  turnTo:function(e){
+     var id=e.currentTarget.dataset.id;
+     wx.navigateTo({
+     url: "../detail/detail?type=activity&id="+id+""})     
   },
   onReady:function(){
     console.log('嘻嘻')

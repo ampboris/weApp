@@ -5,14 +5,19 @@ var WxParse = require('../../utils/wxParse/wxParse.js');
 Page({
   data:{
     type:'news',
+    id:222
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-   
+    console.log(options)
+   this.setData({
+     type:options.type,
+     id:options.id
+   })
    var that=this;
    wx.request({
-     url: 'https://m.camelliae.com/project',
-     data: {objId:222},
+     url: 'https://m.camelliae.com/'+this.data.type,
+     data: {objId:this.data.id},
      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
      // header: {}, // 设置请求的 header
      success: function(res){
@@ -34,7 +39,20 @@ Page({
           itemList.title=x.title;
           itemList.likeNum=x.likeNum;
           itemList.favNum=x.favNum;
-          items.push(itemList)
+          let type=x.rootTypeId;
+          switch(type){
+            case 1:
+               itemList.linkType='news';
+               break;
+            case 2:
+               itemList.linkType='activity';
+               break;
+            case 3:
+               itemList.linkType='project';
+               break;
+          }
+          itemList.linkId=x.id;
+          items.push(itemList);
         })
         that.setData({
           recLists:items
@@ -67,6 +85,7 @@ Page({
   },
   news:function(res){
      var data=res.data.retData;
+     console.log(data)
      this.setData({
        title:data.title,
        favNum:data.favNum,
@@ -87,6 +106,13 @@ Page({
       address:data.projectAddress,
       telephone:data.projectContact
      })
+  },
+  turnTo:function(e){
+    var type=e.currentTarget.dataset.type;
+    var id=e.currentTarget.dataset.id;
+     wx.navigateTo({
+     url: "detail?type="+type+"&id="+id+""
+})
   },
   onReady:function(){
     // 页面渲染完成
