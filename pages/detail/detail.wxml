@@ -1,53 +1,143 @@
 <!--pages/detail/detail.wxml-->
 <import src='../../utils/wxParse/wxParse.wxml'/>
-<block wx:if="{{true}}">
-   <image src="http://img.camelliae.com/camelliae/pic/1010/5/ae59f4162e7d82f7c158be3d7d73323e.jpg"></image>
+<!--详情部分根据传值过来的参数判断是哪种详情，利用条件渲染-->
+<!--活动的头部分-->
+<block wx:if="{{type=='activity'}}">
+   <image src="{{headPic}}" style="width:750rpx;" mode="aspectFill"></image>
    <view class='a header'>
-       <view class='title'>卡没来呢</view>
+       <view class='title'>{{title}}</view>
        <view class='op-box'>
            <view class='user-op'>
-              收藏 <text>222</text>
+              收藏 <text>{{colNum}}</text>
            </view>
-           <view>  </view>
+           <view class='gap'></view>
            <view class='user-op'>
-              浏览 <text>333</text>
+              浏览 <text>{{watchNum}}</text>
            </view>
        </view>
    </view>
    <view class='rel-info'>
        <view class='info ink'>
             <view class='wrap-center'>
-                 <text class='mark ink'></text>
-                 <text class='color'>墨色</text>
+                 <text class='mark {{color}}'></text>
+                 <text class='color {{color}}'>{{actType}}</text>
             </view>
        </view>
        <view class='info'>
             <view class='wrap-center'>
                  <text class='mark'></text>
-                 <text class='time'>2017-05-01 00:00-2017-05-31 00:00</text>
+                 <text class='time'>{{date}}</text>
             </view>            
        </view>
        <view class='info fix'>
             <view class='wrap-center w-c-add'>
                 <text class='mark'></text>
                 <text class='l'>地址:</text>
+                <view class='address'>{{address}}</view>
             </view>
        </view>
        <view class='info'>
            <view class='wrap-center'>
                 <text class='mark'></text>
                 <text>电话:</text>
-                <text class='tel'>032-324343243</text>
+                <text class='tel'>{{telephone}}</text>
            </view> 
        </view>
    </view>
 </block>
-<view class='divider'></view>
-<view class='main-body'>
-    <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
-</view>
-<view class='more'>
-    <view>更多热门</view>
+<!--服务的头部分-->
+<block wx:elif="{{type=='project'}}">
+    <image src="{{coverPic}}" style="width:750rpx;" mode="scaleToFill"></image>
+   <view class='header s'>
+       <view class='title'>{{title}}</view>
+       <view class='price'>
+          <view class='earnest'>定金： </view>
+          <view class='rmb'>{{subscription}}</view>
+          <view class='op-box'>
+            <view class='user-op'>
+                喜欢 <text>{{favNum}}</text>
+            </view>
+            <view class='gap'></view>
+            <view class='user-op'>
+                收藏 <text>{{hitNum}}</text>
+            </view>
+          </view>
+       </view>
 
+   </view>
+   <view class='rel-info'>
+       <view class='info ink'>
+            <view class='wrap-center'>
+                 <text class='mark type-ser'></text>
+                 <text class='type'>{{typeName}}</text>
+            </view>
+       </view>
+       <view class='info'>
+            <view class='wrap-center'>
+                 <text class='mark'></text>
+                 <text class='time'>总额:{{price}}元</text>
+            </view>            
+       </view>
+       <view class='info fix'>
+            <view class='wrap-center w-c-add'>
+                <text class='mark'></text>
+                <text class='l'>地址:</text>
+                <view class='address'>{{address}}</view>
+            </view>
+       </view>
+       <view class='info'>
+           <view class='wrap-center'>
+                <text class='mark'></text>
+                <text>电话:</text>
+                <text class='tel'>{{telephone}}</text>
+           </view> 
+       </view>
+   </view>
+</block>
+<!--资讯的头部分-->
+<block wx:else>
+    <view class='header'>
+<view class='title'>{{title}}</view>
+        <view class='rel'>
+            <view class='op-box'>
+                <view class='user-op'>
+                    收藏 <text>{{favNum}}</text>
+                </view>
+                <view class='gap'></view>
+                <view class='user-op'>
+                    浏览 <text>{{hitNum}}</text>
+                </view>
+                <text class='publish-time'>{{time}}</text>
+            </view>
+        </view>
+    </view>
+</block>
+<!--分割线-->
+<view class='divider'></view>
+<!--正文-->
+<!--<view class='main-body'>
+    <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+</view>-->
+<view class='more'>
+    <view class='more-title'>更多热门</view>
+    <block wx:for="{{recLists}}">
+        <view class='rec-list'>
+        <image src="{{item.coverPic}}" style="width:280rpx;height:200rpx" mode="aspectFill"></image>
+            <view class='right'>
+                <view class='title'>
+                {{item.title}}
+                </view>
+                <view class='op-box'>
+                    <view class='user-op'>
+                        喜欢 <text>{{item.likeNum}}</text>
+                    </view>
+                    <view class='gap'></view>
+                    <view class='user-op'>
+                        收藏 <text>{{item.favNum}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
 </view>
 

@@ -7,11 +7,35 @@ page{
     position: relative;
 }
 .wxParse-p>image{
-    margin-left: 20rpx;
     width: 710rpx !important;
+    background-color: white;
 }
 .header{
     padding: 28rpx 20rpx 40rpx;
+}
+.header.s{
+    padding: 0 20rpx;   
+    margin-top: 30rpx;
+}
+.s .price{
+    margin-top: 20rpx;
+    display: flex;
+    font-size: 34rpx;
+    color: #FFBC07;
+    font-weight: bold;
+}
+.s .price .earnest{
+    font-size: 26rpx;
+    transform: translateY(7rpx);
+}
+.s .price .rmb{
+    line-height: 1;
+    font-size: 36rpx;
+}
+.s .price .op-box{
+    margin-left: auto;
+    font-weight: normal;
+    transform:translateY(-4rpx);
 }
 .a{
     padding-bottom: 0;
@@ -25,6 +49,14 @@ page{
 .op-box{
     margin-top: 10rpx;
     display: flex;
+}
+.publish-time{
+    color: #666;
+    font-size: 24rpx;
+    margin-left: auto;
+}
+.op-box .gap{
+    width: 20rpx;
 }
 .op-box text{
     display: inline-block;
@@ -41,6 +73,9 @@ page{
 .rel-info .info:first-child{
     margin-top: 0;
 }
+.rel-info .info:last-child{
+    transform: translateY(-5rpx);
+}
 .rel-info .info.type-ser{
     margin-top: 0;
 }
@@ -48,6 +83,19 @@ page{
     font-size: 26rpx;
     color: #333;
     margin-top: 20rpx;
+}
+.rel-info .info.fix .w-c-add{
+    display: flex;
+    align-items: flex-start;
+}
+.rel-info .w-c-add .address{
+    width: 600rpx;
+    line-height: 1.5;
+    transform: translateY(-6rpx);
+}
+.rel-info .w-c-add.wrap-center .mark{
+    top: 6rpx;
+    transform: translateY(0);
 }
 .rel-info .info .wrap-center{
     position: relative;
@@ -69,6 +117,31 @@ page{
 .rel-info .wrap-center .ink{
     background-color: #3f3f3f;
 }
+.rel-info .wrap-center .color.ink{
+    background-color: white;
+    color: #3f3f3f;
+}
+.rel-info .wrap-center .purple{
+    background-color: #5920A6;
+}
+.rel-info .wrap-center .color.purple{
+    background-color: white;
+    color: #5920A6;
+}
+.rel-info .wrap-center .yellow{
+    background-color: #FFBC07;
+}
+.rel-info .wrap-center .color.yellow{
+    background-color: white;
+    color: #FFBC07;
+}
+.rel-info .wrap-center .pink{
+    background-color: #FF758A;
+}
+.rel-info .wrap-center .color.pink{
+    background-color: white;
+    color: #FF758A;
+}
 .divider{
     margin-left: 20rpx;
     width: 710rpx;
@@ -76,5 +149,42 @@ page{
     background-color: #ccc;
 }
 .main-body{
+    margin-bottom: 30rpx;
     padding-top: 60rpx;
+    font-size: 30rpx;
+    line-height: 1.5;
+}
+.wxParse-p{
+    margin-bottom: 30rpx;
+    width: 710rpx;
+    margin-left: 20rpx;
+}
+/*热门部分*/
+.more{
+    width: 710rpx;
+    margin: 0 auto;
+}
+.more-title{
+    margin: 40rpx 0;
+    color: #333;
+    font-size: 24rpx;
+}
+.rec-list{
+    display: flex;
+    margin-bottom: 20rpx;
+}
+.rec-list .right{
+    width: 410rpx;
+    margin-left: 20rpx;
+}
+.rec-list .right .title{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 30rpx;
+    color: #333;
+}
+.rec-list .right .op-box{
+    margin-top: 20rpx;
 }
