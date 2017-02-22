@@ -7,6 +7,12 @@ let api={
     memberList:head+'members',
     // 首页
     banner:head+'recomm/banner',
-    recomm:head+'recomm'
+    recomm:head+'recomm',
+    // 专题
+    topicList:"https://mapi.camelliae.com/v2/topic/list",
+    topicDetail:'https://mapi.camelliae.com//v2/topic/one',
+    // 会员
+    memberDetail:head+'members',
+    timeLine:head+'members/time-line'
 }
 module.exports =api

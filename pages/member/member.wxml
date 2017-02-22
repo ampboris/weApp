@@ -2,7 +2,7 @@
 <import src='../components/loadNotice.wxml'/>
 <scroll-view bindscrolltolower='loadMore' scroll-y="true" >
     <block wx:for='{{lists}}'>
-        <view class='box member-item'>
+        <view class='box member-item' data-id="{{item.id}}" catchtap="turnTo">
            <view class='box-top'>
               <image src="{{item.avatar}}" mode="aspectFill"></image>
             <view class='box-top-right'>

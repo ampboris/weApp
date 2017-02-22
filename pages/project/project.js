@@ -33,7 +33,6 @@ Page({
          page:this.data.page
       },
       success: function(res){
-        console.log(res)
         let count=res.data.retData.dataCount
         that.data.pageCount=Math.ceil(count/that.data.pageSize)
         let list=res.data.retData.dataList;
@@ -47,7 +46,6 @@ Page({
             image.width=i.ratio*180
             images.push(image)
           })
-          console.log(images)
           item.images=images;
           item.address=x.provinceName.substring(0,2);
           item.id=x.id;

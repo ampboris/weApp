@@ -1,17 +1,18 @@
-// pages/member/member.js
-let Api=require('../../utils/api.js').memberList
+// pages/topic/topic.js
+let Api=require('../../utils/api.js').topicList
+var app = getApp()
 Page({
   data:{
     lists:[],
     loadNotice:'正在加载中...',
     page:1,
-    pageSize:5,
-    pageCount:2
+    pageSize:6,
+    pageCount:2    
   },
   onLoad:function(options){
-    this.fetchData()
+    this.fetchData();
   },
-  loadMore:function(){
+  loadMore:function(){   
      if(this.data.page>=this.data.pageCount){
       //  没有更多数据了
       // 貌似动态更新的数据最好都用setData，即那些需要反应在用户界面的数据。
@@ -26,40 +27,45 @@ Page({
   },
   fetchData:function(){
     var that=this;
-     wx.request({
-       url: Api,
+    wx.request({
+      url: Api,
        data: {
           page:this.data.page,
           pageSize:this.data.pageSize
        },
-       success: function(res){
+      success: function(res){
           let count=res.data.retData.dataCount
           that.data.pageCount=Math.ceil(count/that.data.pageSize)
           let list=res.data.retData.dataList;
+          var lists=[];
           list.forEach(x=>{
-            const item={}
-            item.id=x.uid;
-            item.avatar=x.gravatar;
-            item.name=x.nickName;
-            item.title=x.companyName+" "+x.title;
-            item.fanNum=x.relFansCount;
-            item.followNum=x.relWatchCount;
-            const box=[];
-            box[0]=item;
-            that.setData({
-              lists:that.data.lists.concat(box)
-            })
+            let item={}
+            item.id=x.id
+            item.title=x.title
+            item.src=x.coverPic
+            lists.push(item)
           })
-       },
-       complete: function() {
-         // complete
-       }
-     })
+          that.setData({
+            lists:that.data.lists.concat(lists)
+          })
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
   },
   turnTo:function(e){
      var id=e.currentTarget.dataset.id;
+    //  将所点击的专题头图写入全局变量，方便详情页调用;
+     var topicHeadPic=e.currentTarget.dataset.src;
+     var title=e.currentTarget.dataset.title;
+     app.globalData.topicHeadPic=topicHeadPic;
+     app.globalData.topicHeadTitle=title;
      wx.navigateTo({
-     url: "memberDetail?id="+id+""})
+     url: "topicDetail?type=topic&id="+id+""})
   },
   onReady:function(){
     // 页面渲染完成

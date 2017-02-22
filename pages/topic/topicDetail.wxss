@@ -1,0 +1,71 @@
+/* pages/topic/topicDetail.wxss */
+page{
+    height: 100%;
+    background-color: white;
+}
+scroll-view{
+    height: 100%;
+}
+.headPic{
+    margin: 20rpx;
+}
+.list{
+    margin: 20rpx;
+    display: flex;
+    width: 710rpx;
+    height: 100rpx;
+}
+.list .right{
+    margin-left: 20rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 490rpx;
+    height: 100rpx;
+}
+.list .right .title{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-weight: 500;
+    -webkit-line-clamp: 1;
+    font-size: 30rpx;
+    color: #111;
+    line-height: 1.2;
+}
+.list .right .bottom{
+    display: flex;
+}
+.list .right .bottom .tag{
+     padding: 0 10rpx;
+     box-sizing: border-box;
+     height: 36rpx;
+     font-size: 20rpx;
+     line-height: 36rpx;
+     border-radius: 5rpx;
+}
+.list .right .bottom .firstTag{
+     margin-right: 10rpx;
+     color: white;
+}
+.list .right .bottom .secondTag{
+     line-height: 33rpx;
+     color: #999;
+     border: 1rpx solid #999;
+}
+.news .firstTag{
+    background-color: #ff758a;
+}
+.project .firstTag{
+    background-color: #5920a6;
+}
+.activity .firstTag{
+    background-color: #3f3f3f;
+}
+.list .right .bottom .price{
+    margin-left: auto;
+    font-size: 36rpx;
+    line-height: 1;
+    font-weight: 700;
+    color: #ffbc07;
+}

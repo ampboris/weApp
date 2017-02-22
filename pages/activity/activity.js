@@ -35,7 +35,6 @@ Page({
          page:this.data.page
       },
       success: function(res){
-        console.log(res)
         let count=res.data.retData.dataCount
         that.data.pageCount=Math.ceil(count/that.data.pageSize)
         let list=res.data.retData.dataList;
@@ -64,7 +63,6 @@ Page({
      url: "../detail/detail?type=activity&id="+id+""})     
   },
   onReady:function(){
-    console.log('嘻嘻')
   },
   onShow:function(){
     // 页面显示

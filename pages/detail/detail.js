@@ -1,15 +1,13 @@
 // pages/detail/detail.js
 var base64= require('../../utils/base64.js')
 var WxParse = require('../../utils/wxParse/wxParse.js');
-// console.log(base64)
 Page({
   data:{
     type:'news',
     id:222
   },
   onLoad:function(options){
-    // 页面初始化 options为页面跳转所带来的参数
-    console.log(options)
+  wx.showNavigationBarLoading()
    this.setData({
      type:options.type,
      id:options.id
@@ -70,7 +68,6 @@ Page({
   },
   activity:function(res){
     let data=res.data.retData;
-    console.log(data)
     this.setData({
       headPic:data.coverPic,
       title:data.title,
@@ -82,16 +79,23 @@ Page({
       address:data.address,
       telephone:data.telephone
     })
+    wx.setNavigationBarTitle({
+      title: this.data.title
+    })
+    wx.hideNavigationBarLoading()
   },
   news:function(res){
      var data=res.data.retData;
-     console.log(data)
      this.setData({
        title:data.title,
        favNum:data.favNum,
        hitNum:data.hitNum,
        time:data.publishTimeStr
      })
+    wx.setNavigationBarTitle({
+      title: this.data.title
+    })     
+    wx.hideNavigationBarLoading()
   },
   project:function(res){
      var data=res.data.retData;
@@ -106,6 +110,10 @@ Page({
       address:data.projectAddress,
       telephone:data.projectContact
      })
+    wx.setNavigationBarTitle({
+      title: this.data.title
+    })     
+    wx.hideNavigationBarLoading()
   },
   turnTo:function(e){
     var type=e.currentTarget.dataset.type;

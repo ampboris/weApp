@@ -1,0 +1,8 @@
+<!--pages/topic/topic.wxml-->
+<import src='../components/loadNotice.wxml'/>
+<scroll-view bindscrolltolower='loadMore' scroll-y="true">
+    <block wx:for='{{lists}}'>
+        <image src="{{item.src}}" style="width:710rpx;height:200rpx;" mode="aspectFill" data-src="{{item.src}}" data-type='topic' data-id='{{item.id}}' catchtap="turnTo" data-title='{{item.title}}'></image>
+    </block>
+<template is='load-notice' data="{{message:loadNotice}}"></template>
+</scroll-view>

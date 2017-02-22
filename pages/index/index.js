@@ -6,7 +6,7 @@ var recApi=Api.recomm;
 var app = getApp()
 Page({
   data: {
-    autoplay:true,
+    autoplay:false,
     lists:[],
     loadNotice:'正在加载中...',
     page:1,
@@ -23,9 +23,33 @@ Page({
         let lists=res.data.retData.dataList;
         var bannerImages=[];
         lists.forEach(x=>{
+          // 去除外链的可能性
+          if(x.dataType!=3){
 						 let img={}
+            //  如果是专题的话
+             if(x.dataType==2){
+               img.type='topic';
+               img.topicHeadPic=x.coverPic;
+               img.topicTitle=x.title
+             }
+            let objType=parseInt(x.objType);
+             switch(objType){
+               case 1:
+                img.type='news';
+                break;
+               case 2:
+                 img.type='activity';
+                break;
+               case 3:
+                 img.type='project';
+                break;
+             }
+             img.id=x.objId;
 						 img.src=x.coverPic;
              bannerImages.push(img);
+          }else{
+
+          }
 					 })
           that.setData({
           bannerImgUrls:bannerImages
@@ -116,9 +140,20 @@ Page({
      })
   },
   turnTo:function(e){
-     var type=e.currentTarget.dataset.type;
-     var id=e.currentTarget.dataset.id;
+    var type=e.currentTarget.dataset.type;
+    var id=e.currentTarget.dataset.id;
+    if(type=='topic'){
+      // 获取图片
+      var headPic=e.currentTarget.dataset.src;
+       var title=e.currentTarget.dataset.title;
+      // 全局变量里写入topic首图
+      app.globalData.topicHeadPic=headPic;
+      app.globalData.topicHeadTitle=title;
+     wx.navigateTo({
+     url: "../topic/topicDetail?type=topic&id="+id+""})
+    }else{
      wx.navigateTo({
      url: "../detail/detail?type="+type+"&id="+id+""})
+    }
   }
 })

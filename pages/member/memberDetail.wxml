@@ -1,0 +1,52 @@
+<!--pages/member/memberDetail.wxml-->
+<view class='head-wrap'>
+   <view class='frame1'>
+      <image src="{{avatar}}" mode="aspectFill" class='avatar'></image>
+      <view class='frame1-a'>
+         <view class='name'>{{userName}}</view>
+         <view class='title'>{{userTitle}}</view>
+      </view>
+   </view>
+   <view class='frame2'>
+       <view class='story'>大事记</view>
+       <view class='frame2-a'>
+            <view class='frame2-a-a'>
+                <view class='number'>{{followNum}}</view>
+                <view class='text'>TA的关注</view>
+            </view>
+            <view class='frame2-a-b'>
+                <view class='number'>{{fanNum}}</view>
+                <view class='text'>TA的粉丝</view>
+            </view>
+       </view>
+       <!--花瓣图案的东东-->
+       <view class='frame2-b'>
+            <view class='frame2-b-a'></view>
+            <view class='frame2-b-b'></view>
+       </view>
+   </view>
+</view>   
+<view id='story'>
+<view class='st_wr'>
+    <view class='left-line'>
+        <view class='line'></view>
+    </view>
+    <block wx:for="{{lists}}">
+        <view class='st_list'>
+            <view class='tl_year timeline'>{{item.year}}</view>
+            <view class='timeline'>{{item.date}}</view>
+            <view class='saying'>
+                <view>{{item.saying}}</view>
+            </view>
+            <view class='gallery'>
+                <block wx:for="{{item.gallerys}}">
+                    <!--这边是这么写滴item.src-->
+                    <image src="{{item.src}}" mode="aspectFill" style="width:{{item.width}};height:{{item.height}}" data-src="{{item.origin}}" catchtap="openPreview" data-set="{{item.set}}"></image>                    
+                </block>
+            </view>
+        </view>
+    </block>
+
+</view>
+</view>
+

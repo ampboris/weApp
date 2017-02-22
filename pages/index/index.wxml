@@ -8,11 +8,17 @@
     <swiper indicator-dots="true"
       autoplay="{{autoplay}}" interval="3000" circular="true">
       <block wx:for="{{bannerImgUrls}}">
-        <swiper-item>
+        <swiper-item data-type="{{item.type}}" data-id="{{item.id}}" catchtap="turnTo" data-src="{{item.topicHeadPic}}" data-title="{{item.topicTitle}}">
           <image src="{{item.src}}" class="slide-image" style="width:750rpx;height:420rpx" mode="aspectFill"/>
         </swiper-item>
       </block>
     </swiper>
+    <!--资讯专题-->
+    <view class='nav-box'>
+        <navigator url="../news/news" class='item news'>资讯</navigator>
+        <view class='divider'></view>
+        <navigator url="../topic/topic" class='item topic'>专题</navigator>
+    </view>
     <!--列表-->
     <block wx:for='{{lists}}'>
         <template is='news' data="{{...item}}" wx:if="{{item.rootType==1}}"></template>
